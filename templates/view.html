@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <head>
+        <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+      </head>
+    
+      <h2>Users</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for users in val %}
+          <tr>
+            <th>{{loop.index}}</th>
+            <td>{{users.name}}</td>
+            <td>{{users.email}}</td>
+            <td>{{users.password}}</td>
+            <td><a href="/del/{{users.sno}}"><button class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Delete</button></a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+
+    <h2>Who Contact you</h2>
+    <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for value in values %}
+          <tr>
+            <th>{{loop.index}}</th>
+            <td>{{value.name}}</td>
+            <td>{{value.email}}</td>
+            <td>{{value.message}}</td>
+            <td><a href="/delete/{{value.sno}}"><button class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Delete</button></a></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+<a href="/b"><h3>Admin Logout</h3></a>
+</body>
+</html>
